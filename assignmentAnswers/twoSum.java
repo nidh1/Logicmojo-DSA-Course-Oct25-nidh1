@@ -23,6 +23,19 @@ class Result {
 
     public static List<Integer> two_sum(List<Integer> arr, int target) {
     // Write your code here
+        Map<Integer, Integer> mp = new HashMap<>();
+        for(int i=0; i<arr.size(); i++){
+            int need = target - arr.get(i);
+            if(mp.containsKey(need)){
+                List<Integer> temp = new ArrayList<>();
+                temp.add(mp.get(need));
+                temp.add(i);
+                return temp;
+            }
+            mp.put(arr.get(i), i);
+        }
+        
+        return new ArrayList<>();
 
     }
 
